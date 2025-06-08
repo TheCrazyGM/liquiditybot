@@ -77,24 +77,32 @@ The bot requires a `config.json` file in the same directory as `liquidityBot.py`
 
 ## Usage
 
-The bot is run from the command line.
+The bot is run from the command line. Here are the primary ways to execute it:
 
-**Directly using the script (if executable and `uv` is handling dependencies via shebang):**
+**1. Directly as a script (recommended for `uv` users):**
+
+This method leverages the script's shebang (`#!/usr/bin/env -S uv run --quiet --script`) which allows `uv` to manage dependencies automatically.
+
+First, ensure the script is executable:
 
 ```bash
-./liquidityBot.py --pair "SWAP.HIVE:NECTAR" --threshold "0.05" --amount "100"
+chmod +x liquidityBot.py
 ```
 
-**Using Python interpreter:**
+Then, run it from the repository root:
 
 ```bash
-python liquidityBot.py --pair "SWAP.HIVE:NECTAR" --threshold "0.05" --amount "100" --dry-run
+./liquidityBot.py --target-asset PIZZA --base-currency SWAP.HIVE --amount 100 --threshold 0.05
 ```
 
-**If installed as a package with the `project.scripts` entry point:**
+**2. Using the Python interpreter:**
+
+This method is suitable if you've manually set up a virtual environment and installed dependencies.
+
+First, activate your virtual environment (e.g., `source .venv/bin/activate`). Then run:
 
 ```bash
-liquiditybot --pair "SWAP.HIVE:NECTAR" --threshold "0.05" --amount "100"
+python liquidityBot.py --target-asset PIZZA --base-currency SWAP.HIVE --amount 100 --threshold 0.05 --dry-run
 ```
 
 ### Command-Line Arguments

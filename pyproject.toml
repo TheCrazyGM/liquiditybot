@@ -29,10 +29,6 @@ dependencies = [
 Homepage = "https://github.com/thecrazygm/liquiditybot"
 Repository = "https://github.com/thecrazygm/liquiditybot"
 
-[project.scripts]
-# If liquidityBot.py's main() is the intended entry point:
-liquiditybot = "liquiditybot.main:main" # Assuming your script will be importable as 'liquiditybot.main'
-
 [project.optional-dependencies]
 dev = [
     "ruff",
