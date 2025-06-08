@@ -1,0 +1,58 @@
+[project]
+name = "liquiditybot"
+version = "0.1.0"
+description = "A Python bot for automated liquidity provision and trading on the Hive Engine platform." # Updated
+readme = "README.md"
+requires-python = ">=3.12" # Updated
+license = {text = "MIT"}
+authors = [
+    {name = "Michael Garcia", email = "thecrazygm@gmail.com"},
+]
+keywords = ["liquidity", "bot", "trading", "crypto", "hive", "hive-engine", "algorithmic-trading", "nectar", "nectarengine"] # Added hive-specific keywords
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Financial and Insurance Industry",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12", # Updated
+    "Topic :: Office/Business :: Financial :: Investment",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "hive-nectar @ git+https://github.com/thecrazygm/hive-nectar", # Added
+    "nectarengine @ git+https://github.com/thecrazygm/nectarengine", # Added
+]
+
+[project.urls]
+Homepage = "https://github.com/thecrazygm/liquiditybot"
+Repository = "https://github.com/thecrazygm/liquiditybot"
+
+[project.scripts]
+# If liquidityBot.py's main() is the intended entry point:
+liquiditybot = "liquiditybot.main:main" # Assuming your script will be importable as 'liquiditybot.main'
+
+[project.optional-dependencies]
+dev = [
+    "ruff",
+    "pytest >= 7.0",
+    "pytest-cov",
+]
+[tool.ruff]
+line-length = 88
+target-version = "py312" # Updated
+
+[tool.ruff.lint]
+select = [
+    "E", "W", "F", "I", "UP", "C90", "N", "D",
+]
+ignore = [
+    "D203", "D212", "E501",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
